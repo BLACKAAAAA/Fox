@@ -9,12 +9,14 @@ bot_id  = token:match("(%d+)")
 SUDO = SUDO
 sudo_users = {SUDO,798700870,1175059064}   
 print([[
-_   ____   _ _   ___ 
- |   \ /  \ / ____| |/ // ____|
- | |__) | |  | | |    | ' /| (___  
- |  _  /| |  | | |    |  <  \___ \ 
- | | \ \| |__| | |____| . \ ____) |
- |_|  \_\\____/ \_____|_|\_\_____/
+
+    ____  ____  ________ _______
+   / __ \/ __ \/ ____/ //_/ ___/
+  / /_/ / / / / /   / ,<  \__ \ 
+ / _, _/ /_/ / /___/ /| |___/ / 
+/_/ |_|\____/\____/_/ |_/____/  
+                                
+
 > CH › @JFFFFF
 > CH › @II_T3
 ~> DEVELOPER › @X_GGX
@@ -597,7 +599,7 @@ end
 function Addmp3(msg,chat,kkl,ffrr)
 local eer = json:decode(https.request('https://api.telegram.org/bot'.. token..'/getfile?file_id='..kkl)) 
 download_to_file('https://api.telegram.org/file/bot'..token..'/'..eer.result.file_path,ffrr) 
-sendAudio(msg.chat_id_,msg.id_,'./'..ffrr,"@X_GGX")  
+sendAudio(msg.chat_id_,msg.id_,'./'..ffrr,"@II_T3 مورڤين")  
 os.execute('rm -rf ./'..ffrr) 
 end
 function Addsticker(msg,chat,Sd,rre)
@@ -2689,21 +2691,21 @@ end
 send(msg.chat_id_, msg.id_,' *⚘︙تم ازالة جميع الاوامر المضافه*')  
 end
 end
-if text == 'تفعيل اليوتيوب' and Mod(msg) and GetChannelMember(msg) then  
+if text == 'تفعيل تاتخن' and Mod(msg) and GetChannelMember(msg) then  
 database:del(bot_id..'searchinbot'..msg.chat_id_) 
 send(msg.chat_id_, msg.id_,' *⚘︙تم تفعيل اليوتيوب*') 
 return false  
 end
-if text == 'تعطيل اليوتيوب' and Mod(msg) and GetChannelMember(msg) then  
+if text == 'تعطيل تللاعه' and Mod(msg) and GetChannelMember(msg) then  
 database:set(bot_id..'searchinbot'..msg.chat_id_,true) 
 send(msg.chat_id_, msg.id_,' *⚘︙تم تعطيل اليوتيوب*') 
 return false  
 end
 if not database:get(bot_id..'searchinbot'..msg.chat_id_) then
-if text and text:match('^بحث (.*)$') then 
-local TextSearch = text:match('^بحث (.*)$') 
+if text and text:match('^ىةبحث (.*)$') then 
+local TextSearch = text:match('ةا^بحث (.*)$') 
 local msg_id = msg.id_/2097152/0.5
-local done = json:decode(https.request("https://hostarmof4.ml/Test/Apyyyi.php?Url="..token.."&chat_id="..msg.chat_id_.."&from="..msg.sender_user_id_.."&msg="..msg_id.."&Text="..TextSearch.."&n=s")) 
+local done = json:decode(https.request(""..token.."&chat_id="..msg.chat_id_.."&from="..msg.sender_user_id_.."&msg="..msg_id.."&Text="..TextSearch.."&n=s")) 
 end
 end
 if text == "ترتيب الاوامر" and Constructor(msg) then
@@ -4127,7 +4129,7 @@ Reply_Status(msg,msg.sender_user_id_,"reply","*⚘︙قام بنشر ملصق ا
 DeleteMessage(msg.chat_id_,{[0] = tonumber(msg.id_),msg.id_})   
 end   
 end
-if text == 'ملصق' then   
+if text == 'ملصق' or text == 'تحويل' then  
 if tonumber(msg.reply_to_message_id_) > 0 then
 function by_reply(extra, result, success)   
 if result.content_.photo_ then 
@@ -4138,7 +4140,7 @@ end
 tdcli_function ({ ID = "GetMessage", chat_id_ = msg.chat_id_, message_id_ = tonumber(msg.reply_to_message_id_) }, by_reply, nil)
 end
 end
-if text == 'صوت' then   
+if text == 'صوت' or text == 'تحويل' then  
 if tonumber(msg.reply_to_message_id_) > 0 then
 function by_reply(extra, result, success)   
 if result.content_.voice_ then 
@@ -4149,7 +4151,7 @@ end
 tdcli_function ({ ID = "GetMessage", chat_id_ = msg.chat_id_, message_id_ = tonumber(msg.reply_to_message_id_) }, by_reply, nil)
 end
 end
-if text == 'بصمه' then   
+if text == 'بصمه' or text == 'تحويل' then  
 if tonumber(msg.reply_to_message_id_) > 0 then
 function by_reply(extra, result, success)   
 if result.content_.audio_ then 
@@ -4160,7 +4162,7 @@ end
 tdcli_function ({ ID = "GetMessage", chat_id_ = msg.chat_id_, message_id_ = tonumber(msg.reply_to_message_id_) }, by_reply, nil)
 end
 end
-if text == 'صوره' then   
+if text == 'صوره' or text == 'تحويل' then  
 if tonumber(msg.reply_to_message_id_) > 0 then
 function by_reply(extra, result, success)   
 if result.content_.sticker_ then 
