@@ -60,13 +60,13 @@ end
 return RocKs  
 end 
 function RocKsSudoBot(sudo)  
-local TEND = false  
+local RocKs = false  
 for k,v in pairs(sudo_users) do  
 if tonumber(sudo) == tonumber(v) then  
-TEND = true  
+RocKs = true  
 end  
 end  
-return TEND  
+return RocKs  
 end 
 function DevRocKsW(msg) 
 local hash = database:sismember(bot_id.."DEV:Sudo:T", msg.sender_user_id_) 
@@ -5944,23 +5944,23 @@ tdcli_function ({ID = "SearchPublicChat",username_ = username}, start_function, 
 return false
 end
 if text and text:match('^كتم (%d+) (.*)$') and tonumber(msg.reply_to_message_id_) ~= 0 and Mod(msg) then
-local TextEnd = {string.match(text, "^(كتم) (%d+) (.*)$")}
+local TexRocKs = {string.match(text, "^(كتم) (%d+) (.*)$")}
 function start_function(extra, result, success)
-if TextEnd[3] == 'يوم' then
-Time_Restrict = TextEnd[2]:match('(%d+)')
+if TexRocKs[3] == 'يوم' then
+Time_Restrict = TexRocKs[2]:match('(%d+)')
 Time = Time_Restrict * 86400
 end
-if TextEnd[3] == 'ساعه' then
-Time_Restrict = TextEnd[2]:match('(%d+)')
+if TexRocKs[3] == 'ساعه' then
+Time_Restrict = TexRocKs[2]:match('(%d+)')
 Time = Time_Restrict * 3600
 end
-if TextEnd[3] == 'دقيقه' then
-Time_Restrict = TextEnd[2]:match('(%d+)')
+if TexRocKs[3] == 'دقيقه' then
+Time_Restrict = TexRocKs[2]:match('(%d+)')
 Time = Time_Restrict * 60
 end
-TextEnd[3] = TextEnd[3]:gsub('دقيقه',"دقايق") 
-TextEnd[3] = TextEnd[3]:gsub('ساعه',"ساعات") 
-TextEnd[3] = TextEnd[3]:gsub("يوم","ايام") 
+TexRocKs[3] = TexRocKs[3]:gsub('دقيقه',"دقايق") 
+TexRocKs[3] = TexRocKs[3]:gsub('ساعه',"ساعات") 
+TexRocKs[3] = TexRocKs[3]:gsub("يوم","ايام") 
 if RocKsSudoBot(result.sender_user_id_) then
 send(msg.chat_id_, msg.id_,"*⚘︙لا تستطيع (كتم،طرد،حظر،تققيد) مطور السورس او الاساسي*")
 return false 
@@ -5970,7 +5970,7 @@ send(msg.chat_id_, msg.id_, "\n *⚘︙عذرا لا تستطيع كتم* ( "..R
 else
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
 usertext = '\n *⚘︙اسم المستخدم »* ['..data.first_name_..'](t.me/'..(data.username_ or 'JFFFFF')..')'
-status  = '\n*⚘︙تم كتم لمدة ~* { '..TextEnd[2]..' '..TextEnd[3]..'}'
+status  = '\n*⚘︙تم كتم لمدة ~* { '..TexRocKs[2]..' '..TexRocKs[3]..'}'
 send(msg.chat_id_, msg.id_, usertext..status)
 end,nil)
 https.request("https://api.telegram.org/bot"..token.."/restrictChatMember?chat_id="..msg.chat_id_.."&user_id="..result.sender_user_id_..'&until_date='..tonumber(msg.date_+Time))
@@ -5980,28 +5980,28 @@ tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumbe
 return false
 end
 if text and text:match('^كتم (%d+) (.*) @(.*)$') and Mod(msg) then
-local TextEnd = {string.match(text, "^(كتم) (%d+) (.*) @(.*)$")}
+local TexRocKs = {string.match(text, "^(كتم) (%d+) (.*) @(.*)$")}
 function start_function(extra, result, success)
 if result.id_ then
 if (result and result.type_ and result.type_.ID == "ChannelChatInfo") then
 send(msg.chat_id_,msg.id_," *⚘︙عذرا عزيزي المستخدم هاذا معرف قناة يرجى استخدام الامر بصوره صحيحه !*")   
 return false 
 end  
-if TextEnd[3] == 'يوم' then
-Time_Restrict = TextEnd[2]:match('(%d+)')
+if TexRocKs[3] == 'يوم' then
+Time_Restrict = TexRocKs[2]:match('(%d+)')
 Time = Time_Restrict * 86400
 end
-if TextEnd[3] == 'ساعه' then
-Time_Restrict = TextEnd[2]:match('(%d+)')
+if TexRocKs[3] == 'ساعه' then
+Time_Restrict = TexRocKs[2]:match('(%d+)')
 Time = Time_Restrict * 3600
 end
-if TextEnd[3] == 'دقيقه' then
-Time_Restrict = TextEnd[2]:match('(%d+)')
+if TexRocKs[3] == 'دقيقه' then
+Time_Restrict = TexRocKs[2]:match('(%d+)')
 Time = Time_Restrict * 60
 end
-TextEnd[3] = TextEnd[3]:gsub('دقيقه',"دقايق") 
-TextEnd[3] = TextEnd[3]:gsub('ساعه',"ساعات") 
-TextEnd[3] = TextEnd[3]:gsub("يوم","ايام") 
+TexRocKs[3] = TexRocKs[3]:gsub('دقيقه',"دقايق") 
+TexRocKs[3] = TexRocKs[3]:gsub('ساعه',"ساعات") 
+TexRocKs[3] = TexRocKs[3]:gsub("يوم","ايام") 
 if RocKsSudoBot(result.id_) then
 send(msg.chat_id_, msg.id_,"*⚘︙لا تستطيع (كتم،طرد،حظر،تققيد) مطور السورس او الاساسي*")
 return false 
@@ -6010,14 +6010,14 @@ if Can_or_NotCan(result.id_, msg.chat_id_) then
 send(msg.chat_id_, msg.id_, "\n *⚘︙عذرا لا تستطيع كتم* ( "..Rutba(result.id_,msg.chat_id_).." )")
 else
 usertext = '\n *⚘︙اسم المستخدم »* ['..result.title_..'](t.me/'..(username or 'JFFFFF')..')'
-status  = '\n*⚘︙تم كتم لمدة ~* { '..TextEnd[2]..' '..TextEnd[3]..'}'
+status  = '\n*⚘︙تم كتم لمدة ~* { '..TexRocKs[2]..' '..TexRocKs[3]..'}'
 texts = usertext..status
 send(msg.chat_id_, msg.id_,texts)
 https.request("https://api.telegram.org/bot"..token.."/restrictChatMember?chat_id="..msg.chat_id_.."&user_id="..result.id_..'&until_date='..tonumber(msg.date_+Time))
 end
 end
 end
-tdcli_function ({ID = "SearchPublicChat",username_ = TextEnd[4]}, start_function, nil)
+tdcli_function ({ID = "SearchPublicChat",username_ = TexRocKs[4]}, start_function, nil)
 return false
 end
 if text and text:match("^كتم (%d+)$") and Mod(msg) and GetChannelMember(msg) then  
@@ -6158,23 +6158,23 @@ tdcli_function ({ID = "SearchPublicChat",username_ = username}, start_function, 
 return false
 end
 if text and text:match('^تقيد (%d+) (.*)$') and tonumber(msg.reply_to_message_id_) ~= 0 and Mod(msg) then
-local TextEnd = {string.match(text, "^(تقيد) (%d+) (.*)$")}
+local TexRocKs = {string.match(text, "^(تقيد) (%d+) (.*)$")}
 function start_function(extra, result, success)
-if TextEnd[3] == 'يوم' then
-Time_Restrict = TextEnd[2]:match('(%d+)')
+if TexRocKs[3] == 'يوم' then
+Time_Restrict = TexRocKs[2]:match('(%d+)')
 Time = Time_Restrict * 86400
 end
-if TextEnd[3] == 'ساعه' then
-Time_Restrict = TextEnd[2]:match('(%d+)')
+if TexRocKs[3] == 'ساعه' then
+Time_Restrict = TexRocKs[2]:match('(%d+)')
 Time = Time_Restrict * 3600
 end
-if TextEnd[3] == 'دقيقه' then
-Time_Restrict = TextEnd[2]:match('(%d+)')
+if TexRocKs[3] == 'دقيقه' then
+Time_Restrict = TexRocKs[2]:match('(%d+)')
 Time = Time_Restrict * 60
 end
-TextEnd[3] = TextEnd[3]:gsub('دقيقه',"دقايق") 
-TextEnd[3] = TextEnd[3]:gsub('ساعه',"ساعات") 
-TextEnd[3] = TextEnd[3]:gsub("يوم","ايام") 
+TexRocKs[3] = TexRocKs[3]:gsub('دقيقه',"دقايق") 
+TexRocKs[3] = TexRocKs[3]:gsub('ساعه',"ساعات") 
+TexRocKs[3] = TexRocKs[3]:gsub("يوم","ايام") 
 if RocKsSudoBot(result.sender_user_id_) then
 send(msg.chat_id_, msg.id_,"*⚘︙لا تستطيع (كتم،طرد،حظر،تققيد) مطور السورس او الاساسي*")
 return false 
@@ -6184,7 +6184,7 @@ send(msg.chat_id_, msg.id_, "\n *⚘︙عذرا لا تستطيع تقيد* ( ".
 else
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
 usertext = '\n *⚘︙اسم المستخدم »* ['..data.first_name_..'](t.me/'..(data.username_ or 'JFFFFF')..')'
-status  = '\n*⚘︙تم تقيده لمدة ~* { '..TextEnd[2]..' '..TextEnd[3]..'}'
+status  = '\n*⚘︙تم تقيده لمدة ~* { '..TexRocKs[2]..' '..TexRocKs[3]..'}'
 send(msg.chat_id_, msg.id_, usertext..status)
 end,nil)
 https.request("https://api.telegram.org/bot"..token.."/restrictChatMember?chat_id="..msg.chat_id_.."&user_id="..result.sender_user_id_..'&until_date='..tonumber(msg.date_+Time))
@@ -6194,28 +6194,28 @@ tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumbe
 return false
 end
 if text and text:match('^تقيد (%d+) (.*) @(.*)$') and Mod(msg) then
-local TextEnd = {string.match(text, "^(تقيد) (%d+) (.*) @(.*)$")}
+local TexRocKs = {string.match(text, "^(تقيد) (%d+) (.*) @(.*)$")}
 function start_function(extra, result, success)
 if result.id_ then
 if (result and result.type_ and result.type_.ID == "ChannelChatInfo") then
 send(msg.chat_id_,msg.id_," *⚘︙عذرا عزيزي المستخدم هاذا معرف قناة يرجى استخدام الامر بصوره صحيحه !*")   
 return false 
 end  
-if TextEnd[3] == 'يوم' then
-Time_Restrict = TextEnd[2]:match('(%d+)')
+if TexRocKs[3] == 'يوم' then
+Time_Restrict = TexRocKs[2]:match('(%d+)')
 Time = Time_Restrict * 86400
 end
-if TextEnd[3] == 'ساعه' then
-Time_Restrict = TextEnd[2]:match('(%d+)')
+if TexRocKs[3] == 'ساعه' then
+Time_Restrict = TexRocKs[2]:match('(%d+)')
 Time = Time_Restrict * 3600
 end
-if TextEnd[3] == 'دقيقه' then
-Time_Restrict = TextEnd[2]:match('(%d+)')
+if TexRocKs[3] == 'دقيقه' then
+Time_Restrict = TexRocKs[2]:match('(%d+)')
 Time = Time_Restrict * 60
 end
-TextEnd[3] = TextEnd[3]:gsub('دقيقه',"دقايق") 
-TextEnd[3] = TextEnd[3]:gsub('ساعه',"ساعات") 
-TextEnd[3] = TextEnd[3]:gsub("يوم","ايام") 
+TexRocKs[3] = TexRocKs[3]:gsub('دقيقه',"دقايق") 
+TexRocKs[3] = TexRocKs[3]:gsub('ساعه',"ساعات") 
+TexRocKs[3] = TexRocKs[3]:gsub("يوم","ايام") 
 if RocKsSudoBot(result.id_) then
 send(msg.chat_id_, msg.id_,"*⚘︙لا تستطيع (كتم،طرد،حظر،تققيد) مطور السورس او الاساسي*")
 return false 
@@ -6224,14 +6224,14 @@ if Can_or_NotCan(result.id_, msg.chat_id_) then
 send(msg.chat_id_, msg.id_, "\n *⚘︙عذرا لا تستطيع تقيد* ( "..Rutba(result.id_,msg.chat_id_).." )")
 else
 usertext = '\n *⚘︙اسم المستخدم »* ['..result.title_..'](t.me/'..(username or 'JFFFFF')..')'
-status  = '\n*⚘︙تم تقيده لمدة ~* { '..TextEnd[2]..' '..TextEnd[3]..'}'
+status  = '\n*⚘︙تم تقيده لمدة ~* { '..TexRocKs[2]..' '..TexRocKs[3]..'}'
 texts = usertext..status
 send(msg.chat_id_, msg.id_,texts)
 https.request("https://api.telegram.org/bot"..token.."/restrictChatMember?chat_id="..msg.chat_id_.."&user_id="..result.id_..'&until_date='..tonumber(msg.date_+Time))
 end
 end
 end
-tdcli_function ({ID = "SearchPublicChat",username_ = TextEnd[4]}, start_function, nil)
+tdcli_function ({ID = "SearchPublicChat",username_ = TexRocKs[4]}, start_function, nil)
 return false
 end
 ------------------------------------------------------------------------
@@ -9908,7 +9908,7 @@ https.request("https://api.telegram.org/bot"..token.."/answerCallbackQuery?callb
 return false
 end
 object = https.request('https://black-source.tk/Api/InfoVid.php?url=http://www.youtube.com/watch?v='..URL.escape(id_from_vid))
-objectend = JSON.decode(object)
+objecRocKs = JSON.decode(object)
 infovid = "⚘︙ اختر صيغه التنزيل الان.\n"
 keyboard = {} 
 keyboard.inline_keyboard = {
