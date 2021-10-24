@@ -8582,7 +8582,7 @@ tdcli_function ({ID = "SearchPublicChat",username_ = username}, start_function, 
 end
 if text == 'رتبتي' then
 local rtp = Rutba(msg.sender_user_id_,msg.chat_id_)
-send(msg.chat_id_, msg.id_,' *⌯︙رتبتك في البوت »* '..rtp)
+send(msg.chat_id_, msg.id_,' *✥︙رتبتك في البوت »* '..rtp)
 end
 if text == 'لقبه' and tonumber(msg.reply_to_message_id_) > 0 then
 function start_function(extra, result, success)
